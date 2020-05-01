@@ -3,13 +3,6 @@ var apexchartjs = (function () {
     var scriptVersion = "1.0";
     var util = {
         version: "1.2.9",
-        isDefinedAndNotNull: function (pInput) {
-            if (typeof pInput !== "undefined" && pInput !== null) {
-                return true;
-            } else {
-                return false;
-            }
-        },
         isAPEX: function () {
             if (typeof (apex) !== 'undefined') {
                 return true;
@@ -220,7 +213,7 @@ var apexchartjs = (function () {
                 "regionSel": "#" + pRegionID,
                 "parRegionSel": "#" + pRefreshID,
                 "noDataMessage": pNoDataFoundMessage,
-                "escapeHTML": pEscapeRequired || true,
+                "escapeHTML": pEscapeRequired,
                 "chartHeight": pChartHeight,
                 "chartType": pChartType,
                 "showChartData": pShowChartData,

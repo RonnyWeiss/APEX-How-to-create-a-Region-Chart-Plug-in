@@ -28,7 +28,7 @@ prompt APPLICATION 138463 - How to create a region plug-in
 -- Application Export:
 --   Application:     138463
 --   Name:            How to create a region plug-in
---   Date and Time:   12:03 Friday May 1, 2020
+--   Date and Time:   12:41 Friday May 1, 2020
 --   Exported By:     RONNYWEISS@OUTLOOK.COM
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -50,7 +50,7 @@ wwv_flow_api.create_plugin(
  p_id=>wwv_flow_api.id(11673486558897218543)
 ,p_plugin_type=>'REGION TYPE'
 ,p_name=>'APEX.HELLO.WORLD.CHART.SEMI.PROFESSIONAL'
-,p_display_name=>'3. APEX Hello World Plug-in - apexchart.js - SEMI PROFESSIONAL'
+,p_display_name=>'3. APEX Hello World Plug-in - apexchart.js - SEMI PROFESSIONAL with APEX_EXEC'
 ,p_supported_ui_types=>'DESKTOP'
 ,p_plsql_code=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'FUNCTION F_RENDER (',

@@ -1,0 +1,59 @@
+DECLARE
+C_CHART_HEIGHT CONSTANT VARCHAR2(100):= '400px';
+C_CHART_TYPE   CONSTANT VARCHAR2(100) := 'bar';
+C_CHART_ID     CONSTANT VARCHAR2(100) := 'chart';
+VR_CUR         SYS_REFCURSOR;
+VR_JSON_CLOB   CLOB;
+BEGIN
+/* load js libary for apexcharts.js */
+HTP.P('<script src="' ||:APP_IMAGES || 'apexcharts.js"></script>');
+
+/* draw region where chart should be added*/
+HTP.P('<div id="'|| C_CHART_ID ||'"></div>');
+
+/* create data json for chart from cursor */
+APEX_JSON.INITIALIZE_CLOB_OUTPUT;
+
+OPEN VR_CUR FOR SELECT
+                   TO_CHAR(
+                       TRUNC(SYSDATE, 'IW') - 1 + ROWNUM,
+                       'Day, DD-MM'
+                   ) AS "x",
+                   ROWNUM AS "y"
+               FROM
+                   DUAL
+               CONNECT BY
+                   ROWNUM <= 7;
+
+APEX_JSON.WRITE(VR_CUR);
+
+/* store created json on var */
+VR_JSON_CLOB := APEX_JSON.GET_CLOB_OUTPUT(P_FREE => TRUE);
+
+/* add own javascript to render chart */
+HTP.P('<script>');
+HTP.P('
+var options = {
+    chart: {
+        type: "'|| C_CHART_TYPE ||'",
+        height: "'|| C_CHART_HEIGHT ||'"
+    },
+    series: [{
+        name: "Data",
+        data: ' || VR_JSON_CLOB ||'
+    }]
+};
+var chart = new ApexCharts(document.querySelector("#'|| C_CHART_ID ||'"), options);
+chart.render();
+      ');
+HTP.P('</script>');
+
+HTP.P ('<b>Used Data JSON:</b> ' || VR_JSON_CLOB);
+
+/* don't forget the exception handling */
+EXCEPTION
+WHEN OTHERS THEN
+    IF VR_CUR%ISOPEN THEN
+        CLOSE VR_CUR;
+    END IF;
+END;
