@@ -13,11 +13,10 @@ whenever sqlerror exit sql.sqlcode rollback
 --------------------------------------------------------------------------------
 begin
 wwv_flow_api.import_begin (
- p_version_yyyy_mm_dd=>'2020.03.31'
-,p_release=>'20.1.0.00.13'
+ p_version_yyyy_mm_dd=>'2016.08.24'
+,p_release=>'5.1.3.00.05'
 ,p_default_workspace_id=>21717127411908241868
-,p_default_application_id=>138463
-,p_default_id_offset=>0
+,p_default_application_id=>103428
 ,p_default_owner=>'RD_DEV'
 );
 end;
@@ -28,7 +27,7 @@ prompt APPLICATION 138463 - How to create a region plug-in
 -- Application Export:
 --   Application:     138463
 --   Name:            How to create a region plug-in
---   Date and Time:   12:03 Friday May 1, 2020
+--   Date and Time:   19:51 Saturday May 2, 2020
 --   Exported By:     RONNYWEISS@OUTLOOK.COM
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -120,7 +119,7 @@ wwv_flow_api.create_plugin(
 ,p_substitute_attributes=>true
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'1.0'
-,p_about_url=>'https://github.com/RonnyWeiss/APEX-Hello-World-Plug-in'
+,p_about_url=>'https://github.com/RonnyWeiss'
 ,p_files_version=>6
 );
 wwv_flow_api.create_plugin_attribute(
