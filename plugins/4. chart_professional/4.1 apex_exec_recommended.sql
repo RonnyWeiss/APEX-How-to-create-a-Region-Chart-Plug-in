@@ -27,7 +27,7 @@ prompt APPLICATION 138463 - How to create a region plug-in
 -- Application Export:
 --   Application:     138463
 --   Name:            How to create a region plug-in
---   Date and Time:   19:51 Saturday May 2, 2020
+--   Date and Time:   21:49 Saturday May 2, 2020
 --   Exported By:     RONNYWEISS@OUTLOOK.COM
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -179,22 +179,13 @@ wwv_flow_api.create_plugin(
 '    );',
 '    ',
 '    /* add script file (your javascript) */',
-'    /* when debug the full script else minified */',
-'    IF APEX_APPLICATION.G_DEBUG THEN',
-'        APEX_JAVASCRIPT.ADD_LIBRARY(',
-'            P_NAME        => ''script'',',
-'            P_DIRECTORY   => P_PLUGIN.FILE_PREFIX,',
-'            P_VERSION     => NULL,',
-'            P_KEY         => ''apexchartjssrc''',
-'        );',
-'    ELSE',
-'        APEX_JAVASCRIPT.ADD_LIBRARY(',
-'            P_NAME        => ''script.min'',',
-'            P_DIRECTORY   => P_PLUGIN.FILE_PREFIX,',
-'            P_VERSION     => NULL,',
-'            P_KEY         => ''apexchartjssrc''',
-'        );',
-'    END IF;',
+'    APEX_JAVASCRIPT.ADD_LIBRARY(',
+'        P_NAME                  => ''script'',',
+'        P_DIRECTORY             => P_PLUGIN.FILE_PREFIX,',
+'        P_CHECK_TO_ADD_MINIFIED => TRUE, /* in debug mode full script is loaded else the min file */',
+'        P_VERSION               => NULL,',
+'        P_KEY                   => ''apexchartjssrc''',
+'    );',
 '    ',
 '    /* add chart container */',
 '    HTP.P(''<div id="''|| C_STATIC_ID ||''" class="apex-chart-js-container"></div>'');',
