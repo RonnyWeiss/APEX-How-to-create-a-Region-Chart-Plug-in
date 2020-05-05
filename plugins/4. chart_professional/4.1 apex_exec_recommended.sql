@@ -27,7 +27,7 @@ prompt APPLICATION 138463 - How to create a region plug-in
 -- Application Export:
 --   Application:     138463
 --   Name:            How to create a region plug-in
---   Date and Time:   21:49 Saturday May 2, 2020
+--   Date and Time:   19:14 Tuesday May 5, 2020
 --   Exported By:     RONNYWEISS@OUTLOOK.COM
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -61,8 +61,6 @@ wwv_flow_api.create_plugin(
 '    C_X_COL CONSTANT APEX_APPLICATION_PAGE_REGIONS.ATTRIBUTE_01%TYPE := P_REGION.ATTRIBUTE_01;',
 '    /* name of the value col from data source */',
 '    C_Y_COL CONSTANT APEX_APPLICATION_PAGE_REGIONS.ATTRIBUTE_02%TYPE := P_REGION.ATTRIBUTE_02;',
-'    /* array of columns */',
-'    VR_COLUMNS APEX_EXEC.T_COLUMNS;',
 '    /* array of context */',
 '    VR_CONTEXT APEX_EXEC.T_CONTEXT;',
 '    /* number of label column in data source */',
@@ -76,7 +74,6 @@ wwv_flow_api.create_plugin(
 'BEGIN',
 '    /* execute query and store it to context array */',
 '    VR_CONTEXT        := APEX_EXEC.OPEN_QUERY_CONTEXT(',
-'        P_COLUMNS    => VR_COLUMNS,',
 '        P_MAX_ROWS   => P_REGION.FETCHED_ROWS',
 '    );',
 '',

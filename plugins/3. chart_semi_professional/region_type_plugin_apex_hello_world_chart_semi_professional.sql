@@ -27,7 +27,7 @@ prompt APPLICATION 138463 - How to create a region plug-in
 -- Application Export:
 --   Application:     138463
 --   Name:            How to create a region plug-in
---   Date and Time:   19:51 Saturday May 2, 2020
+--   Date and Time:   19:14 Tuesday May 5, 2020
 --   Exported By:     RONNYWEISS@OUTLOOK.COM
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -74,8 +74,6 @@ wwv_flow_api.create_plugin(
 '    VR_CHART_DATA_LABEL APEX_APPLICATION_PAGE_REGIONS.ATTRIBUTE_06%TYPE := P_REGION.ATTRIBUTE_06;',
 '    /* static if of the chart region (should be escaped for security) */',
 '    C_STATIC_ID CONSTANT VARCHAR2(32767) := APEX_ESCAPE.HTML_ATTRIBUTE(P_REGION.STATIC_ID) || ''-container'';',
-'    /* array of columns */',
-'    VR_COLUMNS APEX_EXEC.T_COLUMNS;',
 '    /* array of context */',
 '    VR_CONTEXT APEX_EXEC.T_CONTEXT;',
 '    /* number of label column in data source */',
@@ -102,7 +100,6 @@ wwv_flow_api.create_plugin(
 '    ',
 '    /* execute query and store it to context array */',
 '    VR_CONTEXT        := APEX_EXEC.OPEN_QUERY_CONTEXT(',
-'        P_COLUMNS    => VR_COLUMNS,',
 '        P_MAX_ROWS   => P_REGION.FETCHED_ROWS',
 '    );',
 '',
@@ -214,7 +211,7 @@ wwv_flow_api.create_plugin(
 ,p_subscribe_plugin_settings=>true
 ,p_version_identifier=>'1.0'
 ,p_about_url=>'https://github.com/RonnyWeiss'
-,p_files_version=>7
+,p_files_version=>8
 );
 wwv_flow_api.create_plugin_attribute(
  p_id=>wwv_flow_api.id(11673486796759218547)
