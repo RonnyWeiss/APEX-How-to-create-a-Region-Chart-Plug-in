@@ -1,5 +1,7 @@
 # APEX-How-to-create-a-Region-Chart-Plug-in
 
+![Screenshot](https://github.com/RonnyWeiss/APEX-How-to-create-a-Region-Chart-Plug-in/blob/master/screenshot.png?raw=true)
+
 Building plug-ins in Oracle APEX is not that difficult. This application will take you by the hand and show you step by step how to build an APEX plug-in.
 
 The problem:
