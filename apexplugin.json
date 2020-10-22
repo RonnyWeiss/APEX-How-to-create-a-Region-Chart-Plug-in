@@ -1,6 +1,6 @@
 {
     "name": "APEX How to create a Region Plug-in",
-    "version": "1.0",
+    "version": "1.0.1",
     "description": "Building plug-ins in Oracle APEX is not that difficult. This application will take you by the hand and show you step by step how to build an APEX plug-in.",
     "keywords": ["oracle", "apex", "plugin", "region", "responsive"],
     "homepage": "https://github.com/RonnyWeiss/APEX-How-to-create-a-Region-Chart-Plug-in",
